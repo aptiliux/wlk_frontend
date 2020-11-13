@@ -1,0 +1,11 @@
+.Search {
+  border-radius: 26px;
+  height: 35px;
+  font-size: 16px;
+  padding: 0.3rem 2.2rem;
+  width: 100%;
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #c4c8d8;
+  outline: none;
+}

@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { FunctionComponent, useState } from "react";
+import "./App.css";
+import Logo from "./assets/logo.svg";
+import { Search } from "./component";
+import SearchController from "./controller/search/search.controller";
 
-function App() {
+const App: FunctionComponent<{}> = (props) => {
+  const [searchValue, setSearchValue] = useState("");
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <header className="App-header"></header>
+      <nav className="App-nav">
+        <div className="App-nav-container">
+          <img
+            style={{ width: "152px", height: "35px" }}
+            src={Logo}
+            alt="store logo"
+          />
+          <Search
+            handleOnChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+              setSearchValue(event?.target?.value);
+              console.log(event?.target?.value);
+            }}
+            value={searchValue}
+          />
+        </div>
+      </nav>
+      <main className="App-main">
+        <SearchController searchValue={searchValue} />
+      </main>
     </div>
   );
-}
+};
 
 export default App;
